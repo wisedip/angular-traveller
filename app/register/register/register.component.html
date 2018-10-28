@@ -1,0 +1,91 @@
+<div class="container-fluid padding" style="padding-top: 3em; padding-bottom: 1em;">
+    <div class="row padding" >
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div id="slides" class="carousel slide" data-ride="carousel">
+              <ul class="carousel-indicators">
+                <li data-target="#slides" data-slide-to="0" class="active"></li>
+                <li data-target="#slides" data-slide-to="1"></li>
+                <li data-target="#slides" data-slide-to="2"></li>
+              </ul>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../../assets/images/login1.jpg" style="max-height: 400px; margin-left: 1rem;">
+              </div>
+              <div class="carousel-item">
+                <img src="../../assets/images/login2.jpg" style="max-height: 400px; margin-left: 1rem;">
+              </div>
+              <div class="carousel-item">
+                <img src="../../assets/images/login3.jpg" style="max-height: 400px; margin-left: 1rem;">
+              </div>
+              <div class="carousel-item">
+                  <img src="../../assets/images/login4.jpg" style="max-height: 400px; margin-left: 1rem;">
+                </div>
+            </div>
+          </div>
+        </div>
+      
+<div class="col-lg-6" style="padding-right: 2em; padding-bottom: 2em;">
+  <h3 class="display2">Register</h3>
+  <hr>
+  <form #registerForm="ngForm">
+    <div class="form-group">
+        <label for="name">Full Name</label>
+        <input class="form-control" 
+          type="text" 
+          [(ngModel)]="formdata.name" 
+          #name="ngModel" 
+          name="name" 
+          placeholder="eg: John Doe"
+          id="name" 
+          required>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+          <div *ngIf="name.errors.required">Name is required</div>
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input class="form-control"  
+        type="email" 
+        [(ngModel)]="formdata.email" 
+        #email="ngModel" 
+        name="email" 
+        placeholder="eg: example@example.com"
+        id="email" 
+        required>
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+        <div *ngIf="email.errors.required">Email is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input class="form-control" 
+          type="text" 
+          [(ngModel)]="formdata.username" 
+          #username="ngModel" 
+          name="username" 
+          placeholder="Username" 
+          id="username"
+          required>
+        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+          <div *ngIf="username.errors.required">Username is required</div>
+        </div>
+      </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" 
+          type="password" 
+          [(ngModel)]="formdata.password" 
+          #password="ngModel" 
+          name="password" 
+          placeholder="Password" 
+          id="password"
+          required>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+          <div *ngIf="password.errors.required">Password is required</div>
+        </div>
+      </div>
+    <button (click)="registerUser(registerForm)" [disabled]="!registerForm.form.valid"  class="btn btn-primary" style="float: right;">Sign Up</button>
+  </form>
+  </div>
+  </div>
+</div>
