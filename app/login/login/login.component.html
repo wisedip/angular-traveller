@@ -1,0 +1,59 @@
+<div class="container-fluid padding" style="padding-top: 3em; padding-bottom: 1em;">
+  <div class="row padding" >
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div id="slides" class="carousel slide" data-ride="carousel">
+            <ul class="carousel-indicators">
+              <li data-target="#slides" data-slide-to="0" class="active"></li>
+              <li data-target="#slides" data-slide-to="1"></li>
+              <li data-target="#slides" data-slide-to="2"></li>
+            </ul>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="../../assets/images/login1.jpg" style="max-height: 400px; margin-left: 1rem;">
+            </div>
+            <div class="carousel-item">
+              <img src="../../assets/images/login2.jpg" style="max-height: 400px; margin-left: 1rem;">
+            </div>
+            <div class="carousel-item">
+              <img src="../../assets/images/login3.jpg" style="max-height: 400px; margin-left: 1rem;">
+            </div>
+            <div class="carousel-item">
+                <img src="../../assets/images/login4.jpg" style="max-height: 400px; margin-left: 1rem;">
+              </div>
+          </div>
+        </div>
+      </div>
+    
+      
+  <div class="col-lg-6" style="padding: 1em;">
+  <h3 class="display2">Login</h3>
+        <hr>
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+          <div class="form-group">
+              <label for="username">Username</label>
+              <input class="form-control" 
+                type="text" 
+                placeholder="Username"
+                id="username" 
+                formControlName="username">
+              <div *ngIf="isInvalidForm('username')" class="alert alert-danger">
+                <div *ngIf="isRequired('username')">Username is required</div>
+              </div>
+            </div>
+          
+          <div class="form-group">
+              <label for="password">Password</label>
+              <input class="form-control" 
+                type="password" 
+                placeholder="Password" 
+                id="password"
+                formControlName="password">
+              <div *ngIf="isInvalidForm('password')" class="alert alert-danger">
+                <div *ngIf="isRequired('password')">Password is required</div>
+              </div>
+            </div>
+          <button (click)="loginUser(loginForm)" [disabled]="!loginForm.valid"  class="btn btn-primary" style="float: right;">Sign In</button>
+        </form>
+        </div>
+       </div> 
+</div>
